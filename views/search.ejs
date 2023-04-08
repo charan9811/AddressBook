@@ -16,8 +16,12 @@
           <div class="collapse" id= <%= index%>>
             <div class="card card-body">
               Mobile Number  - <%= contact.mobile%>
-              <button class="editButton" type="submit" name="delbutton" value="<%= contact.mobile%>"><p class="fa-solid fa-user-pen"></p></button>
-              <button class="delButton" type="submit" name="delbutton" value="<%= contact.mobile%>"><p class="fa-solid fa-trash"</p></button>
+              <form action="/edit/<%= contact.mobile%>" method="post">
+                <button class="editButton" type="submit"><p class="fa-solid fa-user-pen"></p></button>
+              </form>
+              <form action="/delete" method="post">
+                <button class="delButton" type="submit" name="delbutton" value="<%= contact.mobile%>"><p class="fa-solid fa-trash"</p></button>
+              </form>
             </div>
             
           </div>
