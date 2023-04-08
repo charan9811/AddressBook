@@ -1,0 +1,30 @@
+<%- include('./partials/header'); -%>
+<div class="contactList col-lg-4 mt-5">
+    <ul class="list-group">
+      <form action="/search" class="d-flex searchBar" role="search" method="post">
+        <input class="form-control me-2" type="search" name="searchedName" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <h2 class="heading">Address Book</h2>
+      
+      <% if (searchedList.length>0){%>
+        <% searchedList.forEach(function(contact, index){ %>
+      
+          <button class="btn btn-outline-dark mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#<%= index%>" aria-expanded="false" aria-controls="collapseExample">
+            <%= contact.name %>
+          </button>
+          <div class="collapse" id= <%= index%>>
+            <div class="card card-body">
+              Mobile Number  - <%= contact.mobile%>
+              <button class="editButton" type="submit" name="delbutton" value="<%= contact.mobile%>"><p class="fa-solid fa-user-pen"></p></button>
+              <button class="delButton" type="submit" name="delbutton" value="<%= contact.mobile%>"><p class="fa-solid fa-trash"</p></button>
+            </div>
+            
+          </div>
+        <% }) %>
+      <%} else{%>
+        <p class="h3">No contacts Found</p>
+      <% }%>
+    </ul>
+  </div>
+<%- include('./partials/footer'); -%>

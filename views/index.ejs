@@ -1,0 +1,49 @@
+<%- include('./partials/header'); -%>
+<div class="container">
+  <form action="/" method="post">
+    <div class="col-lg-4 mb-3">
+      <label for="" class="form-label">Name</label>
+      <input type="text" class="form-control col-xs-4" placeholder="Name" name="name">
+    </div>
+    <div class="col-lg-4 mb-3">
+      <label for="">Phone Number</label>
+      <input type="tel" class="form-control" placeholder="Mobile No" name="number" id="">
+    </div>
+    <button class="btn btn-sm btn-primary">Add</button>
+  </form>
+</div>
+
+<div class="contactList col-lg-4 mt-5">
+  <ul class="list-group">
+    <form action="/search" class="d-flex searchBar" role="search" method="post">
+      <input class="form-control me-2" type="search" name="searchedName" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <h2 class="heading">Address Book</h2>
+    
+    <% if (contactList.length>0){%>
+      <% contactList.forEach(function(contact, index){ %>
+    
+        <button class="btn btn-outline-dark mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#<%= index%>" aria-expanded="false" aria-controls="collapseExample">
+          <%= contact.name %>
+        </button>
+        <div class="collapse mb-3" id= <%= index%>>
+          <div class="card card-body">
+            Mobile Number  - <%= contact.mobile%>
+            <form action="/edit/<%= contact.mobile%>" method="post">
+              <button class="editButton" type="submit"><p class="fa-solid fa-user-pen"></p></button>
+            </form>
+            <form action="/delete" method="post">
+              <button class="delButton" type="submit" name="delbutton" value="<%= contact.mobile%>"><p class="fa-solid fa-trash"</p></button>
+            </form>
+            
+          </div>
+          
+        </div>
+      <% }) %>
+    <%} else{%>
+      <p class="h3">No contacts Found</p>
+    <% }%>
+  </ul>
+</div>
+<%- include('./partials/footer'); -%>

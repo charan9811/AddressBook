@@ -1,0 +1,21 @@
+<%- include('./partials/header'); -%>
+
+<div class="container">
+
+    <form action="/edit" method="get">
+        <% fillData.forEach((contact)=>{ %>
+            <div class="col-lg-4 mb-3">
+                <label for="" class="form-label">Name</label>
+                <input type="text" class="form-control col-xs-4" placeholder="Name" name="newName" value= "<%= contact.name %>">
+              </div>
+              <div class="col-lg-4 mb-3">
+                <label for="">Phone Number</label>
+                <input type="tel" class="form-control" placeholder="Mobile No" name="newNumber" value="<%= contact.mobile %>">
+              </div>
+              <button name="updatebutton" value="<%= contact.mobile %>" class="btn btn-sm btn-primary">Update</button>
+            </form>
+          </div>
+       <% })%>
+
+
+<%- include('./partials/footer'); -%>

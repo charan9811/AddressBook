@@ -1,0 +1,29 @@
+.contactList{
+    position: relative;
+    margin: auto;
+}
+
+.searchBar{
+    margin-bottom: 30px;
+}
+
+.delButton{
+    position: absolute;
+    right: 30px;
+    bottom: 9px;
+}
+
+.editButton{
+    position: absolute;
+    right: 80px;
+    bottom: 9px;
+}
+
+.h3{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.heading{
+    text-align: center;
+}
